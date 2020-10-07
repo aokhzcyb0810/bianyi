@@ -82,6 +82,7 @@ int main(int argc,char* argv[]){
 	return 0;
 }
 void Print(char str[]){
+	int i=0;
 	if(strcmp(str,"BEGIN")==0)
 	  printf("Begin\n");
 	else if(strcmp(str,"END")==0)
@@ -94,8 +95,24 @@ void Print(char str[]){
 	  printf("Then\n");
 	else if(strcmp(str,"ELSE")==0)
 	  printf("Else\n");
-	else if(str[0]>=48 && str[0]<=57)
-		printf("Int(%s)\n",str);
+	else if(str[0]>=48 && str[0]<=57){
+	for(i=0;str[i]!='\0';i++){
+		if(str[i]==48){
+			i++;
+		}
+		else
+		break;
+	}
+	if(str[i]=='\0'){
+		printf("Int(0)\n");	
+	}
+	else{
+		printf("Int(");
+		for(;str[i]!='\0';i++)
+		printf("%c",str[i]);
+		printf(")\n");
+	}
+		} 
 	else if((str[0]>=65 && str[0]<=90) || (str[0]>=97 && str[0]<=122))
 		printf("Ident(%s)\n",str);
 	else if(strcmp(str,":")==0)
