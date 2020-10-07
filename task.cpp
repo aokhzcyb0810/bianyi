@@ -118,7 +118,7 @@ void Print(char str[]){
 	else if(strcmp(str,"ELSE")==0)
 	  printf("Else\n");
 	else if(str[0]>=48 && str[0]<=57){
-	for(i=0;str[i]!='\0';i++){
+	while(str[i]!='\0'){
 		if(str[i]==48){
 			i++;
 		}
