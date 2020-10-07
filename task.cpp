@@ -20,12 +20,34 @@ int main(int argc,char* argv[]){
 				str[n++]=a;
 			}
 			else{
+				if((str[0]>=65 && str[0]<=90) || (str[0]>=97 && str[0]<=122)){
+					if(a>=48 && a<=57){
+				str[n++]=a;
+			}
+			else if(a>=65 && a<=90){
+				str[n++]=a;
+			}
+			else if(a>=97 && a<=122){
+				str[n++]=a;
+			}
+			else{
 				str[n]='\0';
 				Print(str);
 				if(flag==0)
 				return 0;
 				n=0;
 				str[n++]=a;
+			}
+			}
+			else
+			{
+				str[n]='\0';
+				Print(str);
+				if(flag==0)
+				return 0;
+				n=0;
+				str[n++]=a;
+			}
 			}
 			}
 		else if((str[n-1]>=65 && str[n-1]<=90) || (str[n-1]>=97 && str[n-1]<=122)){
