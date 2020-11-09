@@ -51,6 +51,12 @@ int main(int argc,char* argv[]) {
 						stackq[--q]='i';
 					}
 				}
+				else if(f(stack[p],a)==2){
+					printf("I%c\n",a);
+						printf("R\n");
+						p--;
+						stackq[--q]='i';
+					}
 				else if(f(stack[p],a)==-1){
 					printf("E\n");
 					return 0;
@@ -96,6 +102,12 @@ int main(int argc,char* argv[]) {
 						stackq[--q]='i';
 					}
 				}
+				else if(f(stack[p],a)==2){
+					printf("I%c\n",a);
+						printf("R\n");
+						p--;
+						stackq[--q]='i';
+					}
 				else if(f(stack[p],a)==-1){
 					printf("E\n");
 					return 0;
