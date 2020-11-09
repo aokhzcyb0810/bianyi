@@ -3,7 +3,7 @@
 #include<string.h>
 char stack[10000],stackq[10000];
 int f(char a,char b);
-int main(int argc,char* argv[]) {
+int main(int argc ,char* argv[]) {
 	FILE *fp;
 	fp=fopen(argv[1],"r");
 	char a,c;
@@ -16,6 +16,8 @@ int main(int argc,char* argv[]) {
 				if(f(stack[p],a)==0){
 					stack[++p]=a;
 					printf("I%c\n",a);
+					if(a=='(')
+					stackq[++q]=a;
 				}
 				else if(f(stack[p],a)==1){
 					while(f(stack[p],a)==1){
@@ -28,6 +30,10 @@ int main(int argc,char* argv[]) {
 							if(q>0){
 								p--;
 								q--;
+								if(stackq[q]=='('){
+									printf("RE\n");
+									return 0;
+								}
 								printf("R\n");
 							}
 							else{
@@ -41,6 +47,7 @@ int main(int argc,char* argv[]) {
 					if(f(stack[p-1],stack[p])==2){
 						printf("R\n");
 						p-=2;
+						stackq[--q]='i';
 					}
 				}
 				else if(f(stack[p],a)==-1){
@@ -53,6 +60,8 @@ int main(int argc,char* argv[]) {
 		while(stack[p]!='a'){
 		if(f(stack[p],a)==0){
 					stack[++p]=a;
+					if(a=='(')
+					stackq[++q]=a;
 				}
 				else if(f(stack[p],a)==1){
 					while(f(stack[p],a)==1){
@@ -65,6 +74,10 @@ int main(int argc,char* argv[]) {
 							if(q>0){
 								p--;
 								q--;
+								if(stackq[q]=='('){
+									printf("RE\n");
+									return 0;
+								}
 								printf("R\n");
 							}
 							else{
@@ -78,6 +91,7 @@ int main(int argc,char* argv[]) {
 				if(f(stack[p-1],stack[p])==2){
 						printf("R\n");
 						p-=2;
+						stackq[--q]='i';
 					}
 				}
 				else if(f(stack[p],a)==-1){
