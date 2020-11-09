@@ -16,12 +16,13 @@ int main(int argc,char* argv[]) {
 				if(f(stack[p],a)==0){
 					stack[++p]=a;
 					printf("I%c\n",a);
+					if(a=='(')
 					stackq[++q]=a;
 				}
 				else if(f(stack[p],a)==1){
 					while(f(stack[p],a)==1){
 						if(stack[p]=='i'){
-						//	stackq[++q]='i';
+							stackq[++q]='i';
 							p--;
 							printf("R\n");
 						}
@@ -29,11 +30,10 @@ int main(int argc,char* argv[]) {
 							if(q>0){
 								p--;
 								q--;
-								if(stackq[q]!='+' && stackq[q]!='*'){
+								if(stackq[q]=='('){
 									printf("RE\n");
 									return 0;
 								}
-								q--;
 								printf("R\n");
 							}
 							else{
@@ -43,7 +43,7 @@ int main(int argc,char* argv[]) {
 						}
 					}
 					stack[++p]=a;
-					stackq[++q]=a;
+				//	stackq[++q]=a;
 					printf("I%c\n",a);
 					if(f(stack[p-1],stack[p])==2){
 						printf("R\n");
@@ -67,7 +67,7 @@ int main(int argc,char* argv[]) {
 				else if(f(stack[p],a)==1){
 					while(f(stack[p],a)==1){
 						if(stack[p]=='i'){
-						//	stackq[++q]='i';
+							stackq[++q]='i';
 							p--;
 							printf("R\n");
 						}
@@ -75,11 +75,10 @@ int main(int argc,char* argv[]) {
 							if(q>0){
 								p--;
 								q--;
-								if(stackq[q]!='+' && stackq[q]!='*'){
+								if(stackq[q]=='('){
 									printf("RE\n");
 									return 0;
 								}
-								q--;
 								printf("R\n");
 							}
 							else{
@@ -89,7 +88,7 @@ int main(int argc,char* argv[]) {
 						}
 					}
 					stack[++p]=a;
-					stackq[++q]=a;
+				//	stackq[++q]=a;
 				//	printf("I%c\n",a);
 				if(f(stack[p-1],stack[p])==2){
 						printf("R\n");
