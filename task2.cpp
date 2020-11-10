@@ -84,7 +84,11 @@ int main(int argc,char* argv[]) {
 									if(stackq[i]=='i')
 									numq++;
 								}
-								if(numq-p<1 && p!=0){
+								for(int i=0;i<=p;i++){
+									if(stack[i]=='+' || stack[i]=='*')
+									nump++;
+								}
+								if(numq-nump<1 && p!=0){
 									printf("RE\n");
 									return 0;
 								}
@@ -101,6 +105,11 @@ int main(int argc,char* argv[]) {
 								return 0;
 							}
 						}
+						if(f(stack[p],a)==-1)
+							{
+								printf("E\n");
+								return 0;
+							}
 					}
 					stack[++p]=a;
 				//	stackq[++q]=a;
