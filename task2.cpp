@@ -79,6 +79,15 @@ int main(int argc,char* argv[]) {
 						}
 						else{
 							if(q>0){
+								int nump=0,numq=0;
+								for(int i=0;i<=q;i++){
+									if(stackq[i]=='i')
+									numq++;
+								}
+								if(numq-p<1 && p!=0){
+									printf("RE\n");
+									return 0;
+								}
 								p--;
 								q--;
 								if(stackq[q]=='('){
