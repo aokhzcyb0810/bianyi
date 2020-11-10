@@ -105,7 +105,7 @@ int main(int argc,char* argv[]) {
 								return 0;
 							}
 						}
-						if(f(stack[p],a)==-1)
+						if(f(stack[p],a)==-1 && p!=0)
 							{
 								printf("E\n");
 								return 0;
